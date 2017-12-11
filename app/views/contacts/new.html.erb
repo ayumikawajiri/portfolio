@@ -1,0 +1,59 @@
+<div class="section-body">
+  <div class="breadcrumbs" >
+    <%= render_breadcrumbs separator: ' > ' %>
+  </div>
+
+  <div class="h1-var clearfix">
+    <div class="h1-title left">Direct Message</div>
+    <div class="h1-sub right"><%= link_to 'Back', 'javascript:history.back()' %></div>
+  </div>
+
+    <div class="contact-ref">
+      <div class="contact-title">
+        <%= @classified.title %>
+      </div>
+      <div class="clearfix">
+        <% if @classified.photos.present? %>
+          <% @classified.photos.each do |photo| %>
+            <div class="left"><%= attachment_image_tag photo, :file, :fill, 100, 100 %></div>
+          <% end %>
+        <% else %>
+          <div><%= image_tag 'l_e_others_501.png', :size => "100" %></div>
+        <% end %>
+      </div>
+      <div class="contact-content">
+        <%= simple_format(@classified.content) %>
+      </div>
+    </div>
+
+    <div class="form">
+      <%= form_with(model: @contact, url: { action: 'confirm' }, local: true) do |form| %>
+        <% if @contact.errors.any? %>
+          <div id="error_explanation">
+            <ul>
+            <% @contact.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= form.text_field :name, placeholder: "Name", id: :contact_name, class: "text-field" %>
+        </div>
+
+        <div class="field">
+          <%= form.email_field :email, placeholder: "Email", id: :contact_email, class: "text-field" %>
+        </div>
+
+        <div class="field">
+          <%= form.text_area :message, placeholder: "Message", id: :contact_message, class: "text-area-content" %>
+        </div>
+
+        <div class="actions clearfix">
+          <%= form.submit 'confirm', class: "submit right" %>
+        </div>
+      <% end %>
+    </div>
+
+</div>

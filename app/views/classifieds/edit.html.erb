@@ -1,0 +1,14 @@
+<div class="section-body">
+
+	<div class="h1-var">
+		<div class="h1-title">Edit Classified</div>
+	</div>
+
+	<div class="form">
+	  <%= form_with(model: [@classified.city, @classified], url: {:action => 'update'}, local: true) do |form| %>
+	  	<%= render :partial => 'form', :locals => {:form => form} %>
+		<%#= render 'form', classified: @classified %>
+
+		<% end %>
+	</div>
+</div>

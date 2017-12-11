@@ -1,0 +1,69 @@
+
+
+<% if @classified.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% @classified.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="clearfix">
+  City: <%= form.collection_select :city_id, City.all, :id, :name, class: "left" %>
+</div>
+
+<div class="clearfix">
+  <div class="left">
+    Type of classified: <%= form.select :type, options_for_select(Classified.types.map { |type| type[0] }) %>
+  </div>
+
+  <div class="left">
+    <div class="category-job-field">
+      Category: <%= form.select :select_category_job, options_for_select(Classified.category_jobs.map { |category| [category[1], category[0]] }) %>
+    </div>
+    <div class="category-house-field">
+      Category: <%= form.select :select_category_house, options_for_select(Classified.category_houses.map { |category| [category[1], category[0]] }) %>
+    </div>
+    <div class="category-community-field">
+      Category: <%= form.select :select_category_community, options_for_select(Classified.category_communities.map { |category| [category[1], category[0]] }) %>
+    </div>
+  </div>
+</div>
+
+<div class="field">
+  <%= form.text_field :title, placeholder: "Title", class: "text-field", id: :classified_title %>
+</div>
+
+<div class="field">
+  <%= form.text_area :content, placeholder: "Content", class: "text-area-content", id: :classified_content %>
+</div>
+
+<div class="clearfix">
+  <% if @classified.photos.present? %>
+    <% @classified.photos.each do |photo| %>
+      <div class="left"><%= attachment_image_tag photo, :file, :fill, 150, 150 %></div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="field">
+  Photo 1 <%= form.attachment_field :photos_files, multiple: true %>
+  <%= form.hidden_field :photos_files_cache %>
+</div>
+
+<div class="field">
+  Photo 2 <%= form.attachment_field :photos_files, multiple: true %>
+</div>
+
+<div class="field">
+  Photo 3 <%= form.attachment_field :photos_files, multiple: true %>
+</div>
+
+<div class="actions clearfix">
+  <%= form.submit 'Confirm', class: "submit right" %>
+  <% if request.path_info != new_city_classified_path %>
+    <%= link_to 'Delete', [@classified.city, @classified], method: :delete, data: { confirm: 'Are you sure?' }, class: "submit right" %>
+  <% end %>
+</div>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classifieds AUS</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <link href="https://fonts.googleapis.com/css?family=Irish+Grover|Lato:400i|Pacifico" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+  </head>
+  <body>
+
+    <header>
+      <div class="clearfix">
+        <div class="logo-box left">
+          <p class="logo"><%= link_to 'Classifieds AUS', root_path, class: "logo-link" %></p>
+        </div>
+        <div class="navi-box right">
+          <div class="navi">
+            <ul>
+              <% if user_signed_in? %>
+                <div class="right">
+                  <li class="h-list left">Logged in as <span class="h-name"><%= current_user.name %></span>  |</li>
+                  <li class="h-list left"><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "h-link" %>  |</li>
+                  <li class="h-list left"><%= link_to 'My Page', user_path(current_user), class: "h-link" %>  |</li>
+                  <% if current_user.admin? %>
+                      <li class="h-list left"><%= link_to 'Register New User', new_user_registration_path, class: "h-link" %>  |</li>
+                  <% end %>
+                </div>
+              <% else %>
+                <div class="right">
+                  <li class="h-list left"><%= link_to 'Login', new_user_session_path, class: "h-link" %>  |</li>
+                  <li class="h-list left"><%= link_to 'Register', new_user_registration_path, class: "h-link" %>  |</li>
+                </div>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-body">
+      <div class="state-var clearfix">
+        <% City.state_formal_names.each do |code, state| %>
+          <ul class="ul-style">
+            <div class="state-link-box left">
+              <li class="state-list"><%= link_to state, state_path(state: code), class: "state-link" %></li>
+            </div>
+          </ul>
+        <% end %>
+        <br>
+        <p id="notice"><%= notice %></p>
+      </div>
+      <br>
+      <%= yield %>
+    </div>
+
+    <footer></footer>
+  </body>
+</html>

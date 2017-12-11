@@ -1,0 +1,38 @@
+<%= @contact.classified.user.name %>様
+  
+--------------------------
+Name: <%= @contact.name %>
+Email: <%= @contact.email %>
+Message:
+<%= @contact.message %>
+--------------------------
+
+Thank you for your generous support to Classifieds AUS.
+いつも Classifieds AUS を御利用頂き誠にありがとうございます。
+
+You have got an inquiry from <%= @contact.name %>.
+<%= @contact.name %>さんからお問い合わせがございました。
+
+
+Classified Title：
+<%= @contact.classified.title %>
+
+Sender：
+<%= @contact.email %>
+
+Message：
+<%= simple_format(@contact.message) %>
+
+
+You can reply to this email in order to contact with <%= @contact.name %>
+*The reply will not be sent to Classifieds AUS Office.
+
+<%= @contact.name %>さんに連絡したい場合はこちらのメールにご返信ください。
+※Classifieds AUS Office宛には届きません。
+
+
+Sincerely,
+今後ともどうぞ宜しくお願い申し上げます。
+
+
+Classifieds AUS Office

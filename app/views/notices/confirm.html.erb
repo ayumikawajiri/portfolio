@@ -1,0 +1,22 @@
+<div class="section-body">
+
+  <%= form_with( model: @notice, local: true ) do |f| %>
+    <div class="field">
+      <%= f.label :title %> 
+      <%= @notice.title %>
+      <%= f.hidden_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :content %> 
+      <%= simple_format(@notice.content) %>
+      <%= f.hidden_field :content %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Back', name: 'back' %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Create' %>
+    </div>
+  <% end %>
+
+</div>

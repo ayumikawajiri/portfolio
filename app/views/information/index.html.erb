@@ -1,0 +1,43 @@
+<div class="section-body">
+  <div class="breadcrumbs" >
+    <%= render_breadcrumbs separator: ' > ' %>
+  </div>
+
+  <div class="h1-var clearfix">
+    <div class="h1-title left">Information</div>
+    <div class="h1-sub right">
+      <% if user_signed_in? && current_user.admin? %>
+        <%= link_to 'New Information', new_information_path %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="category-list-box clearfix">
+    <div>Search by Category</div>
+    <% Information.categories.each do |category, number| %>
+      <div class="category-list left">
+        <i class="fa fa-lightbulb-o" aria-hidden="true"></i> <%= link_to category, information_categories_path(category: category) %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="classifieds-container">
+    <div class="clearfix">
+      <div class="page right"><%= page_entries_info(@information) %></div>
+    </div>
+    <% @information.each do |information| %>
+      <%= link_to information do %>
+        <div class="border clearfix">
+          <p class="cl-table-title left"><%= information.title %></p>
+          <p class="cl-table-date left"><%= information.created_at.strftime("%Y/%m/%d") %></p>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="clearfix">
+      <div class="page right"><%= paginate(@information) %></div>
+    </div>
+  </div>
+
+  <br>
+
+</div>

@@ -1,0 +1,64 @@
+<div class="section-body">
+  <div class="breadcrumbs" >
+    <%= render_breadcrumbs separator: ' > ' %>
+  </div>
+
+  <div class="h1-var clearfix">
+    <div class="h1-title left"><%= @type %></div>
+    <% if user_signed_in? %>
+      <div class="new-classified-box right">
+        <div class="new-classified">
+          <%= link_to new_city_classified_path, class: "cl-link" do %>
+            <div>Post new classified of <%= @city.name %></div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="category-list-box">
+    <div>Search by Category</div>
+    <div class="clearfix">
+      <% if @type == "job" %>
+        <% Classified.category_jobs.each do |category, formal| %>
+          <div class="category-list left">
+            <i class="fa fa-briefcase" aria-hidden="true"></i><%= link_to formal, city_classified_categories_path(@city, category: category) %>
+          </div>
+        <% end %>
+      <% elsif @type == "house" %>
+        <% Classified.category_houses.each do |category, formal| %>
+          <div class="category-list left">
+            <i class="fa fa-home" aria-hidden="true"></i><%= link_to formal, city_classified_categories_path(@city, category: category) %>
+          </div>
+        <% end %>
+      <% elsif @type == "community" %>
+        <% Classified.category_communities.each do |category, formal| %>
+          <div class="category-list left">
+            <i class="fa fa-users" aria-hidden="true"></i><%= link_to formal, city_classified_categories_path(@city, category: category) %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="classifieds-container">
+    <div class="clearfix">
+      <div class="page right"><%= page_entries_info(@classifieds) %></div>
+    </div>
+    <% @classifieds.each do |classified| %>
+      <%= link_to [classified.city, classified] do %>
+        <div class="border clearfix">
+          <p class="cl-table-title left"><%= classified.title %></p>
+          <p class="cl-table-date left"><%= classified.created_at.strftime("%Y/%m/%d") %></p>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="clearfix">
+      <div class="page right"><%= paginate(@classifieds) %></div>
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+</div>

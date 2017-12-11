@@ -1,0 +1,8 @@
+<div class="section-body">
+	<div class="h1-var clearfix">
+		<div class="h1-title left">New Comment</div>
+		<div class="h1-sub right"><%= link_to 'Back', city_classified_path(@classified.city.id, @classified.id) %></div>
+	</div>
+
+	<%= render 'form', comment: @comment %>
+</div>

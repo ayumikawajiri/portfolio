@@ -1,0 +1,42 @@
+<h2><%= @contact.classified.user.name %>様</h2>
+
+<p>
+  Thank you for your generous support to Classifieds AUS.<br>
+  いつも Classifieds AUS を御利用頂き誠にありがとうございます。
+</p>
+
+<p>
+  You have got an inquiry from <%= @contact.name %>.<br>
+  <%= @contact.name %>さんからお問い合わせがございました。
+</p>
+
+<p>
+  <strong>Classified Title：</strong><br>
+  <%= @contact.classified.title %>
+</p>
+
+<p>
+  <strong>Sender：</strong><br>
+  <%= @contact.email %>
+</p>
+
+<p>
+  <strong>Message：</strong>
+  <%= simple_format(@contact.message) %>
+</p>
+
+<p>
+  You can reply to this email in order to contact with <%= @contact.name %><br>
+  *The reply will not be sent to Classifieds AUS Office.<br><br>
+  <%= @contact.name %>さんに連絡したい場合はこちらのメールにご返信ください。<br>
+  ※Classifieds AUS Office宛には届きません。
+</p>
+
+<br>
+<br>
+<p>
+  Sincerely,<br>
+  今後ともどうぞ宜しくお願い申し上げます。
+</p>
+
+<p>Classifieds AUS Office</p>

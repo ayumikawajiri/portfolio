@@ -1,0 +1,27 @@
+
+<div class="section-body">
+  <div class="breadcrumbs" >
+    <%= render_breadcrumbs separator: ' > ' %>
+  </div>
+
+  <div class="h1-var clearfix">
+    <div class="h1-title left"><%= @category %></div>
+  </div>
+
+  <div class="classifieds-container">
+    <div class="clearfix">
+      <div class="page right"><%= page_entries_info(@information) %></div>
+    </div>
+    <% @information.each do |information| %>
+      <%= link_to information do %>
+        <div class="border clearfix">
+          <p class="cl-table-title left"><%= information.title %></p>
+          <p class="cl-table-date left"><%= information.created_at.strftime("%Y/%m/%d") %></p>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="clearfix">
+      <div class="page right"><%= paginate(@information) %></div>
+    </div>
+  </div>
+</div>

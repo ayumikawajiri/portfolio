@@ -1,0 +1,31 @@
+<div class="section-body">
+
+	<div class="h1-var clearfix">
+		<div class="h1-title left">My Page <small>(<%= @user.name %>さん)</small></div>
+		<div class="h1-sub right"><%= link_to 'Edit Your Profile', edit_user_registration_path(@user) %></div>
+	</div>
+
+	<h3 class="r-h3">Your Post History</h3>
+
+	<div class="history-container">
+		<% if @classifieds.count == 0 %>
+			<p>You have not posted any classifieds as of now.</p>
+		<% else %>
+			<% @classifieds.each do |classified| %>
+			  <div class="history">
+				  <div class="history-title">
+					  <%= link_to classified.title, city_classified_path(classified.city, classified) %><br>
+					</div>
+					<div class="clearfix">
+						<div class="clearfix right">
+							<small class="color-grey">
+								<div class="count left"><%= classified.comments.count %> Comments </div>
+						  	<div class="count left"><%= classified.contacts.count %> Direct messages</div>
+						  </small>
+					  </div>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+</div>

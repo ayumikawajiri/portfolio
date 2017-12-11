@@ -1,0 +1,28 @@
+<div class="section-body">
+  <div class="form">
+    <%= form_with( model: [@contact.classified.city, @contact.classified, @contact], local: true ) do |f| %>
+      <div class="field">
+        <%= f.label :name %> 
+        <%= @contact.name %>
+        <%= f.hidden_field :name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %>
+        <%= @contact.email %>
+        <%= f.hidden_field :email %>
+      </div>
+
+      <div class="field">
+        <%= f.label :message %> 
+        <%= simple_format(@contact.message) %>
+        <%= f.hidden_field :message %>
+      </div>
+
+      <div class="actions clearfix">
+        <%= f.submit 'Back', name: 'back', class: "submit right" %>
+        <%= f.submit 'Send', class: "submit right" %>
+      </div>
+    <% end %>
+  </div>
+</div>

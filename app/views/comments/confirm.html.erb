@@ -1,0 +1,22 @@
+<div class="section-body">
+  <div class="form">
+    <%= form_with( model: [@comment.classified.city, @comment.classified, @comment], local: true ) do |f| %>
+      <div class="field">
+        <%= f.label :nickname %> 
+        <%= @comment.nickname %>
+        <%= f.hidden_field :nickname %>
+      </div>
+      <div class="field">
+        <%= f.label :message %> 
+        <%= simple_format(@comment.message) %>
+        <%= f.hidden_field :message %>
+      </div>
+      <div class="actions">
+        <%= f.submit 'Back', name: 'back', class: "submit right" %>
+      </div>
+      <div class="actions clearfix">
+        <%= f.submit 'Create', class: "submit right" %>
+      </div>
+    <% end %>
+  </div>
+</div>

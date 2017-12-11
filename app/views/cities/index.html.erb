@@ -1,0 +1,29 @@
+<div class="section-body">
+
+  <div class="breadcrumbs" >
+    <%= render_breadcrumbs separator: ' > ' %>
+  </div>
+
+  <div class="h1-var">
+  	<div class="h1-title">Cities in Australia</div>
+  </div>
+
+	<div class="city-container clearfix">
+	  <% @cities.each do |city| %>
+	    <div class="city-box left">
+	    	<%= link_to city, class: "c-link" do %>
+		    	<% if city.image.present? %>
+		    		<%= attachment_image_tag city, :image, :fill, 350, 250, class: "c-image" %><br>
+  				<% else %>
+    				<%= image_tag 'l_e_others_501.png', size: '350x240', class: "c-image"  %><br>
+  				<% end %>
+  				<p class="c-name"><%= city.name %><br></p>
+  			<% end %>
+  			<%= truncate(city.introduction, length: 50) %>
+  		</div>
+	  <% end %>
+	 </div>
+
+  <br>
+
+</div>

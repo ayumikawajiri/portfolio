@@ -1,0 +1,46 @@
+<div class="section-body">
+
+  <div class="h2-var">
+    <div class="h2-title">Confirm</div>
+  </div>
+
+  <div class="classified-container">
+
+    <%= @classified.title %>
+    <% if @classified.type =="job" %>
+      <p>
+        <strong>category:</strong>
+        <%= @classified.category_job %>
+      </p>
+    <% elsif @classified.type =="house" %>
+      <p>
+        <strong>category:</strong>
+        <%= @classified.category_house %>
+      </p>
+    <% elsif @classified.type =="community" %>
+      <p>
+        <strong>category:</strong>
+        <%= @classified.category_community %>
+      </p>
+    <% end %>
+
+    <div class="clearfix">
+      <% if @classified.photos.present? %>
+        <% @classified.photos.each do |photo| %>
+          <div class="left"><%= attachment_image_tag photo, :file, :fill, 150, 150 %></div>
+        <% end %>
+      <% else %>
+        <div><%= image_tag 'l_e_others_501.png', :size => "200" %></div>
+      <% end %>
+    </div>
+
+    <div><%= simple_format(@classified.content) %></div>
+
+    <div class="clearfix">
+      <div class="actions clearfix right">
+        <%= link_to 'Back', edit_city_classified_path(@classified.city, @classified), class: "submit left" %>
+        <%= link_to 'Create', [@classified.city, @classified], class: "submit left" %>
+      </div>
+    </div>
+  </div>
+</div>

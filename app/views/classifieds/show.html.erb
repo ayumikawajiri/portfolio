@@ -1,0 +1,85 @@
+<div class="section-body">
+  <div class="breadcrumbs" >
+    <%= render_breadcrumbs separator: ' > ' %>
+  </div>
+
+  <div class="h2-var clearfix">
+    <div class="h2-title left"><%= @classified.title %></div>
+    <div class="h1-sub right">
+      <% if user_signed_in? %>
+        <% if current_user.admin? || @classified.user_id == current_user.id %>
+          <%= link_to 'Edit', edit_city_classified_path(@classified.city, @classified) %> |
+          <%= link_to 'Delete', [@classified.city, @classified], method: :delete, data: { confirm: 'Are you sure?' } %> |
+        <% end %>
+      <% end %>
+      <%= link_to 'Back', 'javascript:history.back()' %>
+    </div>
+  </div>
+
+  <div class="classified-container">
+    <div class="clearfix">
+      <div class="right">
+        <%= @classified.type %> in <strong><%= @classified.city.name %></strong><br>
+        Posted by <strong><%= @classified.user.name %></strong><br>
+        <%= link_to new_city_classified_contacts_path(@classified.city, @classified) do %>
+          <div class="message"><i class="fa fa-envelope-o" aria-hidden="true"></i> Send direct message</div>
+        <% end %>
+      </div>
+    </div>
+
+    <% if @classified.type =="job" %>
+      <p>
+        <strong>category:</strong>
+        <%= link_to @classified.category_job, city_classified_categories_path(@classified.city, category: @classified.category) %>
+      </p>
+    <% elsif @classified.type =="house" %>
+      <p>
+        <strong>category:</strong>
+        <%= link_to @classified.category_house, city_classified_categories_path(@classified.city, category: @classified.category) %>
+      </p>
+    <% elsif @classified.type =="community" %>
+      <p>
+        <strong>category:</strong>
+        <%= link_to @classified.category_community, city_classified_categories_path(@classified.city, category: @classified.category) %>
+      </p>
+    <% end %>
+
+    <div class="clearfix">
+      <% if @classified.photos.present? %>
+        <% @classified.photos.each do |photo| %>
+          <div class="left"><%= attachment_image_tag photo, :file, :fill, 150, 150 %></div>
+        <% end %>
+      <% else %>
+        <div><%= image_tag 'l_e_others_501.png', :size => "200" %></div>
+      <% end %>
+    </div>
+
+    <div><%= simple_format(@classified.content) %></div>
+
+    <br><div class="border"></div><br>
+    <div class="clearfix">
+      <%= link_to new_city_classified_comment_path(@classified.city, @classified) do %>
+        <div class="message right"><i class="fa fa-comments-o" aria-hidden="true"></i> Post Comment</div>
+      <% end %>
+    </div>
+
+    <% if @classified.comments.count == 0 %>
+      <div class="comment-container">
+        <p class="color-grey">No Comments</p>
+      </div>
+    <% else %>
+      <% @classified.comments.reverse_each do |comment| %>
+        <div class="comment-container">
+          <%= simple_format(comment.message) %>
+          <div class="clearfix"><small class="right">
+            <%= comment.created_at.strftime("%Y/%m/%d") %>
+            Commented by <%= comment.nickname %>
+          </small></div>
+          <% if user_signed_in? && current_user.admin? %>
+            <div class="clearfix"><small class="right"><%= link_to '↑ Delete', [comment.classified.city, comment.classified, comment], method: :delete, data: { confirm: 'Are you sure?' } %></small><br></div>
+          <% end %><br>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

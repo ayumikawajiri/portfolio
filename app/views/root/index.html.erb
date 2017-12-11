@@ -1,0 +1,46 @@
+<section class="r-section-top">
+  <div>
+    <%= image_tag '10.6 753.JPG', :width => "100%", class: "main-image" %>
+  </div>
+  <div class="main-text">Welcome to Classifieds AUS!!<br><br>Make your life in Australia better!!</div>
+</section>
+
+<section class="section-body clearfix">
+  <div class="r-section-box left">
+    <h3 class="r-h3">New! Notices</h3>
+
+    <div class="r-section-box-content">
+      <% @notices.last(10).reverse_each do |notice| %>
+        <%= link_to notice_path(notice), class: "r-link" do %>
+          <div class="clearfix">
+            <p class="table-date left"><%= notice.created_at.strftime("%Y/%m/%d") %></p>
+            <p class="table-title left"><%= notice.title %></p>
+            <p class="table-content left"><%= truncate(notice.content, length: 10) %></p>
+          </div>
+        <% end %>
+      <% end %>
+      <div class="clearfix">
+        <div class="right"><%= link_to 'See More...', notices_path %></div>
+      </div>    
+    </div>
+  </div>
+
+  <div class="r-section-box left">
+    <h3 class="r-h3">Useful Information</h3>
+
+    <div class="r-section-box-content">
+      <% @information.last(10).reverse_each do |information| %>
+        <%= link_to information_path(information) do %>
+          <div class="clearfix">
+            <p class="table-date left"><%= information.created_at.strftime("%Y/%m/%d") %></p>
+            <p class="table-title left"><%= information.title %></p>
+            <p class="table-content left"><%= truncate(information.content, length: 10) %></p>
+          </div>
+        <% end %>
+      <% end %>
+      <div class="clearfix">
+        <div class="right"><%= link_to 'See More...', information_index_path %></div>
+      </div>
+    </div>
+  </div>
+</section>

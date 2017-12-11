@@ -1,0 +1,31 @@
+<div class="section-body">
+
+  <div class="h1-var clearfix">
+    <div class="h1-title left">Log in</div>
+    <div class="h1-sub right"><%= render "devise/shared/links" %></div>
+  </div>
+
+  <div class="form">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.email_field :email, placeholder: "Email", class: "text-field" %>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password, placeholder: "Password", autocomplete: "off", class: "text-field" %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="field clearfix">
+          <div class="left"><%= f.check_box :remember_me %></div>
+          <div class="left"><%= f.label :remember_me %></div>
+        </div>
+      <% end -%>
+
+      <div class="actions clearfix">
+        <%= f.submit "Log in", class: "submit right" %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

@@ -1,0 +1,92 @@
+// Place all the styles related to the Classifieds controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/*---------------index-----------------*/
+
+.new-classified-box {
+	width: 30%;
+	height: 50px;
+	margin: 10px; 
+}
+
+.new-classified {
+	width: 90%;
+	height: 40px;
+	background-color: #6495ed;
+	border-radius: 10px;
+	display: table;
+}
+
+.cl-link {
+	text-decoration: none;
+	color: #fffff9 !important;
+	font-size: 20px;
+	text-align: center;
+	display: table-cell;
+  vertical-align: middle;
+}
+
+.new-classified:hover {
+	background-color: #4169e1;
+}
+
+.classifieds-container {
+	width: 60%;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #f7fcfe;
+}
+
+.cl-table-title {
+	width: 70%;
+	padding: 0 30px;
+}
+
+.cl-table-date {
+	width: 20%;
+}
+
+.cityname-box {
+	margin: 15px 0;
+}
+
+.type-box, .category-box {
+	width: 50%;
+}
+
+.classified-container {
+	width: 50%;
+	margin: 50px auto;
+	padding: 70px;
+	background-color: #fff8dc;
+}
+
+.message {
+	color: #409ecc;
+}
+
+.message:hover {
+	color: #006eb0;
+}
+
+.category-list-box {
+	width: 90%;
+	border: 1px solid #d3d6dd;
+	padding: 5px 10px;
+	margin: 30px auto;
+}
+
+.category-list {
+	color: #00ac97;
+	padding: 5px;
+	margin: 10px;
+}
+
+.comment-container {
+	width: 80%;
+	margin: 20px auto;
+	padding: 30px;
+	border: 1px dotted #c0c6c9;
+}

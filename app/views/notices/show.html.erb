@@ -1,0 +1,28 @@
+<div class="section-body">
+  <div class="breadcrumbs" >
+    <%= render_breadcrumbs separator: ' > ' %>
+  </div>
+
+	<div class="h2-var clearfix">
+		<div class="h2-title left"><%= @notice.title %></div>
+		<div class="h1-sub right">
+			<% if user_signed_in? && current_user.admin? %>
+		  	<%= link_to 'Edit', edit_notice_path(@notice) %> |
+		  	<%= link_to 'Delete', @notice, method: :delete, data: { confirm: 'Are you sure?' } %> |
+			<% end %>
+			<%= link_to 'Back', 'javascript:history.back()'  %>
+		</div>
+	</div>
+
+	<div class="show-container">
+		<div class="clearfix">
+			<div class="h1-sub right">
+		  	<%= @notice.created_at.strftime("%Y/%m/%d") %>
+			</div>
+		</div>
+	  <div class="show-text">
+	  	<%= simple_format(@notice.content) %>
+	  </div>
+	</div>
+
+</div>
