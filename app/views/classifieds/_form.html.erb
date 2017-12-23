@@ -10,35 +10,50 @@
   </div>
 <% end %>
 
-<div class="clearfix">
-  City: <%= form.collection_select :city_id, City.all, :id, :name, class: "left" %>
-</div>
-
-<div class="clearfix">
-  <div class="left">
-    Type of classified: <%= form.select :type, options_for_select(Classified.types.map { |type| type[0] }) %>
-  </div>
-
-  <div class="left">
-    <div class="category-job-field">
-      Category: <%= form.select :select_category_job, options_for_select(Classified.category_jobs.map { |category| [category[1], category[0]] }) %>
-    </div>
-    <div class="category-house-field">
-      Category: <%= form.select :select_category_house, options_for_select(Classified.category_houses.map { |category| [category[1], category[0]] }) %>
-    </div>
-    <div class="category-community-field">
-      Category: <%= form.select :select_category_community, options_for_select(Classified.category_communities.map { |category| [category[1], category[0]] }) %>
-    </div>
-  </div>
-</div>
-
-<div class="field">
-  <%= form.text_field :title, placeholder: "Title", class: "text-field", id: :classified_title %>
-</div>
-
-<div class="field">
-  <%= form.text_area :content, placeholder: "Content", class: "text-area-content", id: :classified_content %>
-</div>
+<table rules="rows" bordercolor="#c0c6c9" border="1">
+  <tr>
+    <th style="width: 30%">City</th>
+    <td style="width: 70%"><%= form.collection_select :city_id, City.all, :id, :name, class: "left" %></td>
+  </tr>
+  <tr>
+    <th>Type of classified</th>
+    <td><%= form.select :type, options_for_select(Classified.types.map { |type| type[0] }) %></td>
+  </tr>
+  <tr>
+    <th>Category</th>
+    <td>
+      <div class="category-job-field">
+        <%= form.select :select_category_job, options_for_select(Classified.category_jobs.map { |category| [category[1], category[0]] }) %>
+      </div>
+      <div class="category-house-field">
+        <%= form.select :select_category_house, options_for_select(Classified.category_houses.map { |category| [category[1], category[0]] }) %>
+      </div>
+      <div class="category-community-field">
+        <%= form.select :select_category_community, options_for_select(Classified.category_communities.map { |category| [category[1], category[0]] }) %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <th>Title</th>
+    <td><%= form.text_field :title, class: "text-field", id: :classified_title %></td>
+  </tr>
+  <tr>
+    <th>Content</th>
+    <td><%= form.text_area :content, class: "text-area-content", id: :classified_content %></td>
+  </tr>
+  <tr>
+    <th>Photo 1</th>
+    <td><%= form.attachment_field :photos_files, multiple: true, class: "text-field" %><%= form.hidden_field :photos_files_cache %></td>
+  </tr>
+  <tr>
+    <th>Photo 2</th>
+    <td><%= form.attachment_field :photos_files, multiple: true, class: "text-field" %><%= form.hidden_field :photos_files_cache %></td>
+  </tr>
+  <tr>
+    <th>Photo 3</th>
+    <td><%= form.attachment_field :photos_files, multiple: true, class: "text-field" %><%= form.hidden_field :photos_files_cache %></td>
+  </tr>
+</table>
 
 <div class="clearfix">
   <% if @classified.photos.present? %>
@@ -48,18 +63,6 @@
   <% end %>
 </div>
 
-<div class="field">
-  Photo 1 <%= form.attachment_field :photos_files, multiple: true %>
-  <%= form.hidden_field :photos_files_cache %>
-</div>
-
-<div class="field">
-  Photo 2 <%= form.attachment_field :photos_files, multiple: true %>
-</div>
-
-<div class="field">
-  Photo 3 <%= form.attachment_field :photos_files, multiple: true %>
-</div>
 
 <div class="actions clearfix">
   <%= form.submit 'Confirm', class: "submit right" %>

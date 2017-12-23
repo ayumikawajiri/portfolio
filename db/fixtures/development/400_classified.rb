@@ -18,6 +18,7 @@ community = [300, 310, 320, 330, 340, 350, 0]
   )
 end
 
+
 200.times do |i|
   Classified.seed(:id,
     {

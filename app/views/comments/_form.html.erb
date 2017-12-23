@@ -9,15 +9,16 @@
         </ul>
       </div>
     <% end %>
-
-    <div class="field">
-      <%= form.text_field :nickname, placeholder: "Nickname",  id: :comment_nickname, class: "text-field" %>
-    </div>
-
-    <div class="field">
-      <%= form.text_area :message, placeholder: "Comment",  id: :comment_message, class: "text-area-content" %>
-    </div>
-
+    <table rules="rows" bordercolor="#c0c6c9" border="1">
+      <tr>
+        <th style="width: 30%">Nickname</th>
+        <td style="width: 70%"><%= form.text_field :nickname, id: :comment_nickname, class: "text-field" %></td>
+      </tr>
+      <tr>
+        <th>Comment</th>
+        <td><%= form.text_area :message, id: :comment_message, class: "text-area-content" %></td>
+      </tr>
+    </table>
     <div class="actions clearfix">
       <%= form.submit 'confirm', class: "submit right" %>
     </div>

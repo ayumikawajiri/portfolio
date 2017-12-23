@@ -9,35 +9,34 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
 
-      <div class="field">
-        <%= f.text_field :name, placeholder: "Name", class: "text-field" %>
-      </div>
-
-      <div class="field">
-        <%= f.email_field :email, placeholder: "Email", class: "text-field" %>
-      </div>
-
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
-
-      <div class="field">
-        <% if @minimum_password_length %>
-          <em><%= @minimum_password_length %> characters minimum</em>
-        <% end %><br />
-        <%= f.password_field :password, placeholder: "Password", autocomplete: "off", class: "text-field" %>
-        <i>(leave blank if you don't want to change it)</i>
-      </div>
-
-      <div class="field">
-        <%= f.password_field :password_confirmation, placeholder: "Confirm Password", autocomplete: "off", class: "text-field" %>
-      </div>
-
-      <div class="field">
-        <%= f.password_field :current_password, placeholder: "Current Password", autocomplete: "off", class: "text-field" %><br />
-        <i>(we need your current password to confirm your changes)</i>
-      </div>
-
+      <table rules="rows" bordercolor="#c0c6c9" border="1">
+        <tr>
+          <th style="width: 30%">Nmae</th>
+          <td style="width: 70%"><%= f.text_field :name, class: "text-field" %></td>
+        </tr>
+        <tr>
+          <th>Email</th>
+          <td><%= f.email_field :email, class: "text-field" %></td>
+        </tr>
+        <tr>
+          <th>Password</th>
+          <td>
+            <%= f.password_field :password, placeholder: "6 characters minimum", autocomplete: "off", class: "text-field" %>
+            <small>(leave blank if you don't want to change it)</small>
+          </td>
+        </tr>
+        <tr>
+          <th>Password Confirmation</th>
+          <td><%= f.password_field :password_confirmation, placeholder: "Confirm Password", autocomplete: "off", class: "text-field" %></td>
+        </tr>
+        <tr>
+          <th>Current Password</th>
+          <td>
+            <%= f.password_field :current_password, placeholder: "Current Password", autocomplete: "off", class: "text-field" %>
+            <small>(we need your current password to confirm your changes)</small>
+          </td>
+        </tr>
+      </table>
       <div class="actions clearfix">
         <%= f.submit "Update", class: "submit right" %>
       </div>

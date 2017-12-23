@@ -13,7 +13,8 @@
 		<% else %>
 			<% @classifieds.each do |classified| %>
 			  <div class="history">
-				  <div class="history-title">
+			  	<div><%= classified.type %></div>
+				  <div>
 					  <%= link_to classified.title, city_classified_path(classified.city, classified) %><br>
 					</div>
 					<div class="clearfix">

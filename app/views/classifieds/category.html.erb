@@ -17,6 +17,13 @@
         <div class="border clearfix">
           <p class="cl-table-title left"><%= category.title %></p>
           <p class="cl-table-date left"><%= category.created_at.strftime("%Y/%m/%d") %></p>
+          <% if category.type == "job" %>
+            <p class="cl-table-category left"><%= category.category_job %></p>
+          <% elsif category.type == "house" %>
+            <p class="cl-table-category left"><%= category.category_house %></p>
+          <% elsif category.type == "community" %>
+            <p class="cl-table-category left"><%= category.category_community %></p>
+          <% end %>
         </div>
       <% end %>
     <% end %>

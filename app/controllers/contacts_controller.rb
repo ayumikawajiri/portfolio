@@ -1,4 +1,6 @@
 class ContactsController < ApplicationController
+  before_action :breadcrumb, only: [:new, :create, :confirm]
+
   def new
   	@classified = Classified.find(params[:classified_id])
     @contact = Contact.new
@@ -36,7 +38,16 @@ class ContactsController < ApplicationController
   end
  
     private
+
     def contact_params
       params.require(:contact).permit(:email, :name, :message, :classified_id)
+    end
+
+    def breadcrumb
+      @city = City.find(params[:city_id])
+      @classified = Classified.find(params[:classified_id])
+      add_breadcrumb @city.state, state_path(@city, state: @city.state)
+      add_breadcrumb @city.name, city_path(@city)
+      add_breadcrumb 'Classified', [@classified.city, @classified]
     end
 end

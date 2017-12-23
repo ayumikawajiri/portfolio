@@ -7,30 +7,27 @@
   <div class="form">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
-
-      <div class="field">
-        <%= f.text_field :name, placeholder: "Name", class: "text-field" %>
-      </div>
-
-      <div class="field">
-        <%= f.email_field :email, placeholder: "Email", class: "text-field" %>
-      </div>
-
-      <div class="field">
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, placeholder: "Password", autocomplete: "off", class: "text-field" %>
-      </div>
-
-      <div class="field">
-        <%= f.password_field :password_confirmation, placeholder: "Confirm Password", autocomplete: "off", class: "text-field" %>
-      </div>
-
+      <table rules="rows" bordercolor="#c0c6c9" border="1">
+        <tr>
+          <th style="width: 30%">Nmae</th>
+          <td style="width: 70%"><%= f.text_field :name, class: "text-field" %></td>
+        </tr>
+        <tr>
+          <th>Email</th>
+          <td><%= f.email_field :email, class: "text-field" %></td>
+        </tr>
+        <tr>
+          <th>Password</th>
+          <td><%= f.password_field :password, placeholder: "6 characters minimum", autocomplete: "off", class: "text-field" %></td>
+        </tr>
+        <tr>
+          <th>Password Confirmation</th>
+          <td><%= f.password_field :password_confirmation, placeholder: "Confirm Password", autocomplete: "off", class: "text-field" %></td>
+        </tr>
+      </table>
       <div class="actions clearfix">
         <%= f.submit "Sign up", class: "submit right" %>
       </div>
     <% end %>
-
   </div>
 </div>

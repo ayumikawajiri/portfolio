@@ -50,6 +50,13 @@
         <div class="border clearfix">
           <p class="cl-table-title left"><%= classified.title %></p>
           <p class="cl-table-date left"><%= classified.created_at.strftime("%Y/%m/%d") %></p>
+          <% if @type == "job" %>
+            <p class="cl-table-category left"><%= classified.category_job %></p>
+          <% elsif @type == "house" %>
+            <p class="cl-table-category left"><%= classified.category_house %></p>
+          <% elsif @type == "community" %>
+            <p class="cl-table-category left"><%= classified.category_community %></p>
+          <% end %>
         </div>
       <% end %>
     <% end %>

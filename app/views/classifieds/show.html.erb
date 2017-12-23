@@ -19,38 +19,18 @@
   <div class="classified-container">
     <div class="clearfix">
       <div class="right">
-        <%= @classified.type %> in <strong><%= @classified.city.name %></strong><br>
-        Posted by <strong><%= @classified.user.name %></strong><br>
+        Posted by <strong><%= @classified.user.name %></strong>
         <%= link_to new_city_classified_contacts_path(@classified.city, @classified) do %>
-          <div class="message"><i class="fa fa-envelope-o" aria-hidden="true"></i> Send direct message</div>
+          <div class="message">(<i class="fa fa-envelope-o" aria-hidden="true"></i> Send direct message)</div>
         <% end %>
-      </div>
+      </div>  
     </div>
-
-    <% if @classified.type =="job" %>
-      <p>
-        <strong>category:</strong>
-        <%= link_to @classified.category_job, city_classified_categories_path(@classified.city, category: @classified.category) %>
-      </p>
-    <% elsif @classified.type =="house" %>
-      <p>
-        <strong>category:</strong>
-        <%= link_to @classified.category_house, city_classified_categories_path(@classified.city, category: @classified.category) %>
-      </p>
-    <% elsif @classified.type =="community" %>
-      <p>
-        <strong>category:</strong>
-        <%= link_to @classified.category_community, city_classified_categories_path(@classified.city, category: @classified.category) %>
-      </p>
-    <% end %>
 
     <div class="clearfix">
       <% if @classified.photos.present? %>
         <% @classified.photos.each do |photo| %>
-          <div class="left"><%= attachment_image_tag photo, :file, :fill, 150, 150 %></div>
+          <div class="photo left"><%= attachment_image_tag photo, :file, :fill, 180, 180 %></div>
         <% end %>
-      <% else %>
-        <div><%= image_tag 'l_e_others_501.png', :size => "200" %></div>
       <% end %>
     </div>
 

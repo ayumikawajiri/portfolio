@@ -1,16 +1,16 @@
 <div class="section-body">
   <div class="form">
     <%= form_with( model: [@comment.classified.city, @comment.classified, @comment], local: true ) do |f| %>
-      <div class="field">
-        <%= f.label :nickname %> 
-        <%= @comment.nickname %>
-        <%= f.hidden_field :nickname %>
-      </div>
-      <div class="field">
-        <%= f.label :message %> 
-        <%= simple_format(@comment.message) %>
-        <%= f.hidden_field :message %>
-      </div>
+      <table rules="rows" bordercolor="#c0c6c9" border="1">
+        <tr class="text-field">
+          <th style="width: 30%">Nickname</th>
+          <td style="width: 70%"><p><%= @comment.nickname %><%= f.hidden_field :nickname %></p></td>
+        </tr>
+        <tr>
+          <th>Comment</th>
+          <td><%= simple_format(@comment.message) %><%= f.hidden_field :message %></td>
+        </tr>
+      </table>
       <div class="actions">
         <%= f.submit 'Back', name: 'back', class: "submit right" %>
       </div>

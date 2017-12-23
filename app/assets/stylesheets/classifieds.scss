@@ -33,19 +33,22 @@
 }
 
 .classifieds-container {
-	width: 60%;
+	width: 80%;
 	margin: 0 auto;
 	padding: 20px;
-	background-color: #f7fcfe;
 }
 
 .cl-table-title {
-	width: 70%;
+	width: 60%;
 	padding: 0 30px;
 }
 
 .cl-table-date {
-	width: 20%;
+	width: 15%;
+}
+
+.cl-table-category {
+	width: 15%;
 }
 
 .cityname-box {
@@ -60,7 +63,8 @@
 	width: 50%;
 	margin: 50px auto;
 	padding: 70px;
-	background-color: #fff8dc;
+	background-color: #f7fcfe;
+	border: 1px solid #c0c6c9;
 }
 
 .message {

@@ -8,7 +8,7 @@
   	<div class="h1-title">Cities in Australia</div>
   </div>
 
-	<div class="city-container clearfix">
+	<section class="city-container clearfix">
 	  <% @cities.each do |city| %>
 	    <div class="city-box left">
 	    	<%= link_to city, class: "c-link" do %>
@@ -22,8 +22,5 @@
   			<%= truncate(city.introduction, length: 50) %>
   		</div>
 	  <% end %>
-	 </div>
-
-  <br>
-
+	</section>
 </div>

@@ -35,6 +35,7 @@ body {
 	padding: 0;
 	background-color: #fffff9;
 	font-family: 'Lato', sans-serif;
+	color: #696969;
 }
 
 header {
@@ -72,32 +73,60 @@ footer {
 }
 
 .form {
-	width: 40%;
+	width: 60%;
 	margin: 0 auto;
-	padding: 30px;
-	border-radius: 15px;
-	background-color: #e6eae3;
+	padding: 50px 70px;
+}
+
+.login-form {
+	width: 35%;
+	margin: 0 auto;
+	padding: 40px;
+	background-color: #f5f5f5;
+}
+
+table {
+	width: 100%;
+	background-color: #f5f5f5;
+}
+
+th {
+	text-align: left;
+	padding-left: 20px;
 }
 
 select {
 	width: 200px;
 	font-size: 16px;
-	margin: 20px;
+	margin: 20px 0;
 }
 
 .text-field {
-	width: 90%;
+	width: 95%;
 	padding: 5px;
-	margin: 0 auto;
+	margin: 20px auto;
 	font-size: 18px;
 }
 
 .text-area-content {
-	width: 90%;
-	height: 300px;
+	width: 95%;
+	height: 500px;
 	padding: 5px;
-	margin: 0 auto;
+	margin: 20px auto;
 	font-size: 18px;
+}
+
+.login-text-field {
+	width: 90%;
+	padding: 5px;
+	margin: 20px auto;
+	font-size: 18px;
+}
+
+.copyright {
+	text-align: center;
+	height: 20px;
+	padding: 90px 0;
 }
 
 .submit {
@@ -106,18 +135,19 @@ select {
 	font-size: 20px !important;
 	color: #fff;
 	box-sizing: content-box;
-	background-color: #a0d8ef;
+	background-color: #009e9f;
+	opacity: 0.6;
 	cursor: pointer;
 	border: none;
 	border-radius: 10px;
 }
 
 .submit:hover {
-	background-color: #2ca9e1;
+	opacity: 1;
 }
 
 .h1-title {
-	width: 40%;
+	width: 60%;
 	height: 60px;
 	font-size: 50px;
 	margin-left: 40px;
@@ -135,7 +165,7 @@ select {
 }
 
 .h2-title {
-	width: 80%;
+	width: 70%;
 	min-height: 50px;
 	line-height: 45px;
 	font-size: 40px;
@@ -143,9 +173,9 @@ select {
 }
 
 .h2-var {
-	width: 100%;
+	width: 70%;
 	min-height: 50px;
-	margin: 30px 0;
+	margin: 30px auto;
   	border-bottom: 3px solid #c0c6c9;
 }
 
@@ -169,12 +199,18 @@ select {
 	font-weight: bold;
 }
 
+.photo {
+	margin-top: 20px;
+	padding: 10px;
+}
+
 /*=============header ===========================*/
 
 .h-link {
 	text-decoration: none;
 	color: #fffff9 !important;
 	font-size: 16px;
+	padding: 0 10px;
 }
 
 .h-link:hover {
@@ -333,15 +369,16 @@ select {
 
 .history-container {
 	width: 50%;
-	padding: 40px;
+	padding: 40px 0;
 	margin: 0 auto; 
 }
 
 .history {
-	width: 100%;
+	width: 90%;
 	padding: 20px;
-	margin: 10px;
-	background-color: #fff8dc;
+	margin: 10px auto;
+	background-color: #f7fcfe;
+	border: 1px solid #a4c1d7;
 }
 
 .count {
