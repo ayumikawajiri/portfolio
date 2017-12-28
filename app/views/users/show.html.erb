@@ -11,7 +11,7 @@
 		<% if @classifieds.count == 0 %>
 			<p>You have not posted any classifieds as of now.</p>
 		<% else %>
-			<% @classifieds.each do |classified| %>
+			<% @classifieds.reverse_each do |classified| %>
 			  <div class="history">
 			  	<div><%= classified.type %></div>
 				  <div>

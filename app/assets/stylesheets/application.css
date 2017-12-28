@@ -350,6 +350,7 @@ select {
 
 .r-section-box {
 	width: 45%;
+	height: 400px;
 	margin: 0 2%;
 	border: inset 5px #017187;
 	border-radius: 30px;
