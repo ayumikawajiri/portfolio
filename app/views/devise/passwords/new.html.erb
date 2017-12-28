@@ -4,13 +4,12 @@
 		<div class="h1-title left">Forgot your password?</div>
 		<div class="h1-sub right"><%= render "devise/shared/links" %></div>
 	</div>
-
-	<div class="form">
+	<div class="login-form">
 		<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
 		  <%= devise_error_messages! %>
 
 		  <div class="field">
-		    <%= f.email_field :email, :placeholder => "Email", class: "text-field" %>
+		    <%= f.email_field :email, :placeholder => "Email", class: "login-text-field" %>
 		  </div>
 
 		  <div class="actions clearfix">

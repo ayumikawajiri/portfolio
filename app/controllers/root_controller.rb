@@ -1,7 +1,7 @@
 class RootController < ApplicationController
  
   def index
-    @notices = Notice.all  	
+    @notices = Notice.all
     @information = Information.all
   end
 end
