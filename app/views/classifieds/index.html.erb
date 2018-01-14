@@ -8,8 +8,8 @@
     <% if user_signed_in? %>
       <div class="new-classified-box right">
         <div class="new-classified">
-          <%= link_to new_city_classified_path, class: "cl-link" do %>
-            <div>Post new classified of <%= @city.name %></div>
+          <%= link_to new_classified_path, class: "cl-link" do %>
+            <div>Post new classified</div>
           <% end %>
         </div>
       </div>

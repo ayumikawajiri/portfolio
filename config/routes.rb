@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
   
-  devise_for :users, :controllers => { :registrations => 'users/registrations' }
+  devise_for :users, controllers: { registrations: 'users/registrations' }
 
   root 'root#index'
 
-  resources :users, :only => [:show]
+  resources :users, only: [:show]
 
-  get '/state' => 'cities#state_city', as: 'state'
+  get '/state', to: 'cities#state_city', as: 'state'
+  get 'classifieds/new', to: 'classifieds#new', as: 'new_classified'
+  post 'classifieds', to: 'classifieds#create'
   resources :cities do
-    get 'classifieds/categories' => 'classifieds#category', as: 'classified_categories'
-    resources :classifieds do
-      get 'confirm' => 'classifieds#confirm', as: 'confirm'
+    get 'classifieds/categories', to: 'classifieds#category', as: 'classified_categories'
+    resources :classifieds, except: [:new, :create] do
+      get 'confirm', to: 'classifieds#confirm', as: 'confirm'
       resource :contacts, only: [:new, :create] do
         collection do
           post 'confirm'
@@ -42,7 +44,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'information/categories' => 'information#category', as: 'information_categories'
+  get 'information/categories', to: 'information#category', as: 'information_categories'
   resources :information do
     collection do
       post 'confirm'

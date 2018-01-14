@@ -9,7 +9,7 @@
 	</div>
 
 	<div class="form">
-	  <%= form_with(model: [@classified.city, @classified], url: {:action => 'create'}, local: true) do |form| %>
+	  <%= form_with(model: @classified, url: {:action => 'create'}, local: true) do |form| %>
 	  	<%= render :partial => 'form', :locals => {:form => form} %>
 		<% end %>
 

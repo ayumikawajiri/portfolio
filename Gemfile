@@ -73,3 +73,4 @@ gem 'refile-mini_magick', github: 'refile/refile-mini_magick'
 gem 'breadcrumbs_on_rails'
 
 
+
