@@ -1,6 +1,6 @@
 class ClassifiedsController < ApplicationController
   before_action :set_classified, only: [:show, :edit, :update, :destroy]
-  before_action :breadcrumb, only: [:index, :show, :new, :edit, :category]
+  before_action :breadcrumb, only: [:index, :show, :edit, :category]
 
 
   def index
@@ -17,6 +17,7 @@ class ClassifiedsController < ApplicationController
   def new
     @classified = Classified.new
     @classified.photos.build
+    add_breadcrumb 'Classifieds'
   end
 
   def edit

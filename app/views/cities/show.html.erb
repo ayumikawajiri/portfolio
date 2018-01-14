@@ -5,13 +5,8 @@
   
   <div class="h1-var clearfix">
     <div class="h1-title left"><%= @city.name %></div>
-    
-    <div class="classified-var right clearfix">
-      <% Classified.types.each do |type, number| %>
-        <%= link_to city_classifieds_path(@city, type: type), class: "classified-type left"  do %>
-          <p>Find <%= type %></p>
-        <% end %>
-      <% end %>
+    <div class="h1-sub right clearfix">
+      <%= link_to 'View all cities', cities_path %>
     </div>
   </div>
   
@@ -32,7 +27,11 @@
           <%= link_to 'Edit', edit_city_path(@city) %> |
           <%= link_to 'Delete', @city, method: :delete, data: { confirm: 'Are you sure?' } %> |
         <% end %>
-        <%= link_to 'View all cities', cities_path %>
+        <% Classified.types.each do |type, number| %>
+          <%= link_to city_classifieds_path(@city, type: type), class: "classified-type left"  do %>
+            <p><i class="fa fa-hand-o-right" aria-hidden="true"></i> Find <%= type %></p>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

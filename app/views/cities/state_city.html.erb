@@ -3,11 +3,30 @@
     <%= render_breadcrumbs separator: ' > ' %>
   </div>
 
-	<div class="h1-var">
-		<div class="h1-title"><%= @state %></div>
+	<div class="h1-var clearfix">
+		<div class="h1-title left"><%= @state %></div>
+		<div class="classified-var right">
+			<div class="dropbutton">
+				<ul id="normal" class="dropmenu">
+					<li><i class="fa fa-hand-o-right" aria-hidden="true"></i> Find Classifieds
+						<ul>
+							<% @cities.each do |city| %>
+								<li><%= link_to city.name, city %>
+									<ul>
+										<% Classified.types.each do |type, number| %>
+											<li><%= link_to type, city_classifieds_path(city, type: type) %></li>
+										<% end %>
+									</ul>
+								</li>
+							<% end %>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 
-	<div class="city-container clearfix">
+	<div class="state-city-container clearfix">
 	  <% @cities.each do |city| %>
 	    <div class="city-box left">
 	    	<%= link_to city, class: "c-link" do %>
@@ -21,8 +40,5 @@
   			<%= truncate(city.introduction, length: 50) %>
   		</div>
 	  <% end %>
-	 </div>
-
-	<br>
-
+	</div>
 </section>

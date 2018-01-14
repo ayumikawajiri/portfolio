@@ -26,8 +26,9 @@
                   <li class="h-list left">Logged in as <span class="h-name"><%= current_user.name %></span></li>
                   <li class="h-list left"><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "h-link" %></li>
                   <li class="h-list left"><%= link_to 'My Page', user_path(current_user), class: "h-link" %></li>
+                  <li class="h-list left"><%= link_to 'New Classified', new_classified_path, class: "h-link" %></li>              
                   <% if current_user.admin? %>
-                      <li class="h-list left"><%= link_to 'Register New User', new_user_registration_path, class: "h-link" %></li>
+                    <li class="h-list left"><%= link_to 'Register New User', new_user_registration_path, class: "h-link" %></li>
                   <% end %>
                 </div>
               <% else %>
@@ -51,6 +52,7 @@
             </div>
           </ul>
         <% end %>
+
         <br>
         <p id="notice"><%= notice %></p>
       </div>

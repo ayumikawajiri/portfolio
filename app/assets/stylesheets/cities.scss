@@ -14,9 +14,8 @@
 	margin: 0 auto;
 }
 
-.city-container {
-	width: 90%;
-	margin: 0 auto;
+.state-city-container {
+	width: 100%;
 }
 
 .city-box {
@@ -27,6 +26,119 @@
 	border: 2px solid #000000;
 }
 
+/*---------------dropdown----------------------*/
+
+.dropbutton{
+	width: 223px;
+	margin: 0;
+}
+
+.dropmenu{
+  *zoom: 1;
+  list-style-type: none;
+  width: 200px;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+.dropmenu:before, .dropmenu:after{
+  content: "";
+  display: table;
+}
+
+.dropmenu:after{
+  clear: both;
+}
+
+.dropmenu li{
+  position: relative;
+  width: 100%;
+  float: left;
+  color: #fffff9;
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  background-color: #009e9f;
+}
+
+.dropmenu > li{
+  padding: 15px 11px;
+}
+
+.dropmenu li a{
+  display: block;
+  margin: 0;
+  padding: 15px 0 11px;
+  line-height: 1;
+  text-decoration: none;
+  color: #fffff9;
+}
+
+.dropmenu li:hover{
+  background-color: #017187;
+}
+
+.dropmenu li a:hover{
+	color: #fffff9;
+}
+
+.dropmenu li ul{
+  list-style: none;
+  width: 100%;
+  position: absolute;
+  z-index: 9999;
+  top: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.dropmenu li ul li{
+  width: 100%;
+}
+
+.dropmenu li ul li a{
+  padding: 13px 15px;
+  border-top: 1px solid #c0c6c9;
+}
+
+.dropmenu li:hover > a{
+  background-color: #017187;
+}
+
+.dropmenu li a:hover{
+  background-color: #017187;
+}
+
+.dropmenu li ul li{
+  overflow: hidden;
+  height: 0;
+  transition: .2s;
+}
+
+.dropmenu li:hover > ul > li{
+  overflow: visible;
+  height: 46px;
+  background-color: #009e9f;
+}
+
+.dropmenu li ul li ul {
+  top: 0;
+  left: -100%;
+}
+
+.dropmenu li:last-child ul li ul:before {
+  position: absolute;
+  content: "";
+  top: 13px;
+  left: 200%;
+  margin-left: -20px;
+  border: 5px solid transparent;
+  border-right-color: #fffff9;
+}
+
+
+
 /*--------------------show----------------------*/
 
 .c-link:hover {
@@ -34,7 +146,7 @@
 }
 
 .classified-var {
-	max-width: 420px;
+	width: 223px;
 }
 
 .classified-type {
