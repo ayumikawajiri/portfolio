@@ -8,7 +8,7 @@ class MailSenderMailer < ApplicationMailer
   def inquiry(contact)
     @contact = contact
     mail to: contact.classified.user.email,
-    	 reply_to:  contact.email,
-    	 subject: "You've got an inquiry through Classifieds AUS"
+    	   reply_to:  contact.email,
+    	   subject: "You've got an inquiry through Classifieds AUS"
   end
 end

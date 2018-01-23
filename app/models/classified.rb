@@ -16,9 +16,9 @@ class Classified < ApplicationRecord
   enum type: { job: 0, house: 10, community: 20 }
 
   enum category: { server: 100, chef: 110, kitchen_hand: 120, house_keeping: 130, barista: 140, hairdresser: 150, sales_staff: 160, farmer: 170, job_other: 199, 
-  				   own: 200, living: 210, room: 220, house_other: 299,
-  				   sports: 300, music: 310, dance: 320, cafe: 330, travel: 340, english: 350, community_other: 0
-  					}
+  				         own: 200, living: 210, room: 220, house_other: 299,
+  				         sports: 300, music: 310, dance: 320, cafe: 330, travel: 340, english: 350, community_other: 0
+  					     }
 
   def category_job
     {
