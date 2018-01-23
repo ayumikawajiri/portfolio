@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   add_breadcrumb "TOP", :root_path
 
   def get_all_states
-	@states = City.all
+  @states = City.all
   end
 
   protected

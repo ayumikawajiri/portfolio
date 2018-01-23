@@ -2,12 +2,12 @@ class ContactsController < ApplicationController
   before_action :breadcrumb, only: [:new, :create, :confirm]
 
   def new
-  	@classified = Classified.find(params[:classified_id])
+    @classified = Classified.find(params[:classified_id])
     @contact = Contact.new
   end
  
   def create
-  	@classified = Classified.find(params[:classified_id])
+    @classified = Classified.find(params[:classified_id])
     @contact = Contact.new(contact_params)
     @contact.classified_id = @classified.id
     

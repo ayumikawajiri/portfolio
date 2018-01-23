@@ -5,7 +5,7 @@
   </div>
 
   <div class="h1-var clearfix">
-  	<div class="h1-title left">Cities in Australia</div>
+    <div class="h1-title left">Cities in Australia</div>
     <div class="classified-var right">
       <div class="dropbutton">
         <ul id="normal" class="dropmenu">
@@ -27,19 +27,19 @@
     </div>
   </div>
 
-	<section class="city-container clearfix">
-	  <% @cities.each do |city| %>
-	    <div class="city-box left">
-	    	<%= link_to city, class: "c-link" do %>
-		    	<% if city.image.present? %>
-		    		<%= attachment_image_tag city, :image, :fill, 350, 250, class: "c-image" %><br>
-  				<% else %>
-    				<%= image_tag 'l_e_others_501.png', size: '350x240', class: "c-image"  %><br>
-  				<% end %>
-  				<p class="c-name"><%= city.name %><br></p>
-  			<% end %>
-  			<%= truncate(city.introduction, length: 50) %>
-  		</div>
-	  <% end %>
-	</section>
+  <section class="city-container clearfix">
+    <% @cities.each do |city| %>
+      <div class="city-box left">
+        <%= link_to city, class: "c-link" do %>
+          <% if city.image.present? %>
+            <%= attachment_image_tag city, :image, :fill, 350, 250, class: "c-image" %><br>
+          <% else %>
+            <%= image_tag 'l_e_others_501.png', size: '350x240', class: "c-image"  %><br>
+          <% end %>
+          <p class="c-name"><%= city.name %><br></p>
+        <% end %>
+        <%= truncate(city.introduction, length: 50) %>
+      </div>
+    <% end %>
+  </section>
 </div>
